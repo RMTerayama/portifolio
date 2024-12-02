@@ -1,0 +1,35 @@
+body{
+    background-color: #2212C1;
+}
+.quem-sou{
+    margin-top: 5vw;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.sobre-mim{
+    width: 50vw;
+    border-left: 1px solid #F7F7F6;
+    padding-left: 5vw;
+
+}
+.apresentacaoPessoalImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.quem-sou h1,.quem-sou h3{
+    color: #F7F7F6;
+}
+
+.quem-sou img{
+    width: 25vw;
+}
+.quem-sou h1{
+    font-family: "Sour Gummy", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 60px;
+    transform: rotateY(30deg);
+}

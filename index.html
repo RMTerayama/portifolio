@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <title>Portfólio</title>
+    <style>
+ /* Corpo da página */
+body {
+    background-color: #f4f7fc; /* Cor de fundo clara para a página */
+    font-family: 'Poppins', sans-serif; /* Fonte utilizada no site */
+    color: #333; /* Cor do texto */
+}
+
+/* Navbar - Barra de navegação */
+.navbar {
+    background-color: #2c3e50; /* Cor de fundo da navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que o navbar fique acima de outros elementos */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para destacar */
+}
+
+/* Estilo dos links da navbar */
+.navbar .nav-link {
+    color: #ecf0f1 !important; /* Cor dos links */
+}
+
+/* Hover sobre os links da navbar */
+.navbar .nav-link:hover {
+    color: #3498db !important; /* Cor dos links quando o mouse passar por cima */
+    
+}
+
+/* Estilo para o link ativo */
+.navbar .nav-link.active {
+    color: #3498db !important; /* Cor para o item ativo */
+    font-weight: bold; /* Deixa o item mais destacado */
+}
+
+/* Seção "Quem Sou" */
+.quem-sou {
+    padding: 10vh; /* Margem superior para centralizar a seção verticalmente */
+    text-align: center; /* Alinha o conteúdo no centro */
+    /* background-color: #2c3e50; */
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+/* Estilo da imagem na seção "Quem Sou" */
+.quem-sou img {
+    width: 150px; /* Define o tamanho da imagem */
+    border-radius: 50%; /* Faz a imagem ficar arredondada */
+}
+
+/* Estilo do título na seção "Quem Sou" */
+.quem-sou h1 {
+    font-size: 2.5rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte */
+    color:#F7F7F6; /* Cor do texto */
+}
+.text-apresent {
+   width: 50vw;
+   margin-bottom: -0.07vw;
+    /* padding-bottom: 1vw; */
+    background: #2C3E50;
+    border-radius: 0 0 10px 10px;
+}
+.quem-sou p{
+    color:#F7F7F6; /* Cor do texto */
+
+}
+/* Estilo do subtítulo na seção "Quem Sou" */
+.quem-sou h3 {
+    font-size: 1rem; /* Tamanho do subtítulo */
+    color: #FC2BFD;
+}
+.card-apresent{
+    padding: 3vw;
+    margin: 2vw;
+    background: #ffffff24;
+    border-radius: 10px;
+}
+.skills {
+margin-left: 3px;
+    white-space: wrap; /* Impede que as palavras quebrem de linha */
+    background: #ffffff66;
+    padding: 2px;
+    border-radius: 5px;}
+
+
+    .wrap-2{
+    position:absolute;
+    z-index:-30;
+    top:0;
+    left:0;
+    overflow:hidden;
+    height:100vh;
+    width:100vw;
+    margin:auto;
+    background: -webkit-gradient(linear, left top, right bottom, from(#118ee1), to(#003b6b));
+    background: #2C3E50;
+}
+canvas{
+    width:100%;
+    height:100%;
+}
+
+/* Seção de "Formações" */
+.formacoes {
+    padding: 4rem 0; /* Espaçamento interno */
+    text-align: center; /* Alinha o conteúdo no centro */
+    background-color: #ffffff; /* Cor de fundo */
+    color: #ecf0f1; /* Cor do texto */
+}
+
+/* Título "Formações" na lateral esquerda */
+.formacoes h2 {
+    font-size: 2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    display: inline-block; /* Exibe o título de forma inline */
+    position: absolute; /* Posiciona o título de forma absoluta */
+    left: 0; /* Alinha à esquerda */
+    top: 140%; /* Distância do topo */
+    transform: translateY(-50%); /* Ajuste vertical */
+    writing-mode: vertical-rl; /* Exibe o texto verticalmente */
+    text-align: center; /* Alinha o texto no centro */
+    color: #3498db; /* Cor do texto */
+}
+
+
+
+/* Container da timeline de formações */
+.timeline-container {
+    position: relative; /* Necessário para posicionar a linha da timeline */
+    max-width: 800px; /* Largura máxima */
+    margin: 50px auto; /* Centraliza a timeline */
+    padding-left: 20px; /* Espaçamento interno à esquerda */
+    overflow: hidden; /* Impede que o conteúdo ultrapasse a área */
+}
+
+/* Lista da timeline */
+.timeline {
+    position: relative; /* Necessário para o posicionamento da linha */
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Remove os marcadores da lista */
+}
+
+/* Linha central da timeline */
+.timeline::before {
+    content: ''; /* Cria um conteúdo vazio */
+    position: absolute; /* Posiciona a linha de forma absoluta */
+    left: 50%; /* Centraliza horizontalmente */
+    top: 0;
+    bottom: 0;
+    width: 4px; /* Largura da linha */
+    background: #3498db; /* Cor da linha */
+    transform: translateX(-50%); /* Ajuste para centralizar a linha */
+}
+
+/* Estilo dos itens da timeline */
+.timeline-item {
+    position: relative;
+    margin: 20px 0; /* Espaçamento entre os itens */
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(50px); /* Inicialmente deslocado para baixo */
+    transition: all 0.6s ease-out; /* Animação de transição */
+}
+
+/* Quando o item está visível */
+.timeline-item.visible {
+    opacity: 1; /* Torna o item visível */
+    transform: translateY(0); /* Remove o deslocamento */
+}
+
+/* Estilo dos itens ímpares da timeline */
+.timeline-item:nth-child(odd) {
+    text-align: right; /* Alinha o conteúdo à direita */
+}
+
+/* Estilo dos itens pares da timeline */
+.timeline-item:nth-child(even) {
+    text-align: left; /* Alinha o conteúdo à esquerda */
+}
+
+/* Estilo do conteúdo dentro de cada item da timeline */
+.timeline-item .content {
+    display: inline-block;
+    position: relative;
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+    padding: 15px 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilo da bolinha que indica a linha do tempo */
+.timeline-item .content::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: #3498db; /* Cor da bolinha */
+    border: 3px solid #fff; /* Borda branca ao redor da bolinha */
+    border-radius: 50%; /* Faz a bolinha ser redonda */
+    transform: translate(-50%, -50%); /* Ajuste para centralizar */
+    z-index: 1;
+}
+
+/* Posicionamento da bolinha para itens ímpares */
+.timeline-item:nth-child(odd) .content::after {
+    right: -30px; /* Coloca à direita */
+}
+
+/* Posicionamento da bolinha para itens pares */
+.timeline-item:nth-child(even) .content::after {
+    left: -30px; /* Coloca à esquerda */
+}
+
+/* Estilo do título dentro de cada item da timeline */
+.content h3 {
+    margin: 0;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    color: #3498db; /* Cor do título */
+}
+
+/* Estilo do parágrafo dentro de cada item da timeline */
+.content p {
+    margin: 5px 0 0; /* Espaçamento entre o título e o parágrafo */
+    font-size: 0.9rem; /* Tamanho da fonte */
+    color: #555; /* Cor do texto */
+    font-family: menu;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content iframe {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 2vw;
+}
+
+/* Estilo do modal */
+.modal-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    border: none;
+    border-radius: 50%; /* Botão redondo */
+    color: rgb(0, 0, 0); /* Cor do texto */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito de transição */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.modal-content .close-button:hover {
+    background-color: #2980b9; /* Cor do botão ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+/* Efeito ao clicar no botão */
+.modal-content .close-button:active {
+    transform: scale(0.95); /* Diminui o tamanho ao clicar */
+}
+
+/* Efeito de sombra suave */
+.modal-content .close-button {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+
+
+
+
+
+
+@keyframes slide-infinite {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .text-marquee {
+    font-size: 2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Peso da fonte */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* Evita quebra de linha */
+    animation: slide-infinite 20s linear infinite; /* Velocidade mais lenta */
+    gap: 5rem; /* Espaçamento entre textos */
+  }
+
+  .text-marquee span {
+    background: linear-gradient(90deg, #3498db, #1abc9c);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .wrapper {
+    overflow: hidden; /* Oculta texto fora do contêiner */
+    width: 100%; /* Largura máxima */
+  }
+.projetos{
+    background-color: #232323;
+    width: 100vw;
+}
+
+.card-projeto img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem seja ajustada */
+    display: block;
+}
+.projetos-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+}
+
+.card-projeto {
+    position: relative;
+    width: 33vw; /* Tamanho fixo para telas grandes */
+    height: auto;
+    transition: width 0.3s ease-in-out; /* Suaviza a transição da largura */
+}
+
+/* Remover hover no título */
+.card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    background: #000000d9;
+    position: absolute;
+    top: 0; /* Cobre o card inteiro */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Preenche toda a área do card */
+    display: flex;
+    align-items: center; /* Centraliza o texto verticalmente */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    z-index: 1; /* Garante que fique acima da imagem */
+}
+
+
+#clima-card:hover #clima-title,
+#login-card:hover #login-title,
+#mario-card:hover #mario-title,
+#yakissoba-card:hover #yakissoba-title,
+#landingPage-card:hover #landingPage-title,
+#tramite-card:hover #tramite-title {
+    opacity: 0.2;
+}
+
+
+.card-projeto video {
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* O vídeo está oculto inicialmente */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.card-projeto:hover video {
+    display: block; /* Mostra o vídeo ao passar o mouse sobre o card */
+}
+
+.card-projeto:hover img {
+    display: none; /* Esconde a imagem ao passar o mouse */
+}
+
+
+
+
+
+/* Estilos para responsividade (telas menores) */
+@media (max-width: 768px) {
+    .social-links {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .social-icon {
+        font-size: 2rem;
+    }
+.card-projeto{
+    width: 50vw;
+}
+.card-title{
+    text-align: center;
+    font-size: 12px;
+}
+
+    .timeline-container {
+        max-width: 100%; /* Largura total para telas menores */
+        padding-left: 10px; /* Menos espaçamento à esquerda */
+    }
+
+    .timeline-item .content {
+        width: 100%; /* Largura total */
+        margin: 0; /* Remove margens */
+    }
+    .modal-content .close-button {
+    
+    border-radius: 40%; /* Botão redondo */
+   border: none;
+   
+}
+    /* Remove a bolinha da linha do tempo em telas menores */
+    .timeline-item:nth-child(odd) .content::after,
+    .timeline-item:nth-child(even) .content::after {
+        display: none;
+    }
+
+    /* Centraliza o texto nos itens da timeline */
+    .timeline-item {
+        text-align: center;
+    }
+
+    /* Ajusta a linha central da timeline para dispositivos móveis */
+    .timeline::before {
+        left: 20px;
+    }
+
+    /* Alinha o título "Formações" no centro para dispositivos móveis */
+    .formacoes h2 {
+        display: block;
+        position: relative;
+        transform: none;
+        writing-mode: unset;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+
+/* Estilo da imagem nas formações (a imagem de fundo) */
+.img-formacao {
+    position: absolute; /* Posiciona a imagem de forma absoluta */
+    z-index: -1; /* Coloca a imagem atrás do conteúdo */
+    opacity: 0.8; /* Dá uma transparência para a imagem */
+}
+
+/* Tamanho da imagem nas formações */
+.img-formacao img {
+    width: 35%; /* Largura da imagem */
+}
+.contatos {
+    padding: 4rem 1rem;
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    text-align: center;
+}
+
+.contatos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.contatos p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-icon {
+    color: #f1faee;
+    font-size: 2.5rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #a8dadc;
+}
+
+/* Responsividade para telas menores (dispositivos com largura menor que 480px) */
+@media (max-width: 480px) {
+   
+    .modal-content{
+        width: 100%;
+    }
+    .quem-sou {
+   flex-direction: column;
+   height: auto;
+
+}
+.wrap-2{
+    height: 200vh;
+}
+    .text-apresent{
+        width: 90vw;
+    }
+
+
+    .quem-sou h1 {
+        font-size: 2rem; /* Reduz o tamanho da fonte no título */
+    }
+
+    .quem-sou h3 {
+        font-size: 0.8rem; /* Reduz o tamanho da fonte no subtítulo */
+    }
+
+    .timeline::before {
+   opacity: 0;
+}
+
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="d-flex ms-auto align-items-center">
+                <label for="language" class="text-white me-2">Linguagem:</label>
+                <select id="language" class="form-select form-select-sm">
+                    <option value="jp">🇯🇵 Japonês</option>
+                    <option value="en">🇺🇸 Inglês</option>
+                    <option value="pt" selected>🇧🇷 Português</option>
+                </select>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item"><a class="nav-link m-0" href="#quem-sou">Quem Sou</a></li>
+                    <li class="nav-item"><a class="nav-link m-0" href="#formacoes">Formações</a></li>
+                    <li class="nav-item"><a class="nav-link m-0" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link m-0" href="#contatos">Contatos</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="quem-sou" id="quem-sou">
+        <div class="wrap-2"><canvas id="liquid"></canvas></div>
+        <div style="background: #ffffff50; border-radius:10px;backdrop-filter: blur(5px);
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        background: #ffffff50;
+        border-radius: 10px;">
+
+
+        <div class="card-apresent">
+            <img src="./src/image/Design sem nome.gif" alt="Foto do Desenvolvedor">
+            <div class="d-flex justify-content-center">
+                <h1>Richard Masayuki</h1>
+                <a href="CV.pdf" download="Richard_Masayuki_CV.pdf" style="margin-left: 10px; text-decoration: none; color: inherit;">
+                    <span class="material-icons" style="font-size: 24px; vertical-align: middle; color:white;">picture_as_pdf</span>
+                </a> 
+            </div>
+          
+            
+            <h3>Desenvolvedor Web</h3>
+            <div class="d-flex justify-content-center align-items-center">
+                <p class="m-0" style="white-space: nowrap;">Soft Skills:</p>
+                <span id="typingEffect" class="skills"></span>
+            </div>
+        </div>
+        
+        <p class="text-apresent">Sou desenvolvedor web em início de carreira com forte interesse em tecnologias voltadas à criação de soluções inovadoras. Atualmente, sou estudante de Análise e Desenvolvimento de Sistemas, com experiência prática no desenvolvimento de sistemas web voltados à otimização de processos em setores públicos, através do trabalho no Departamento de Tecnologia da Prefeitura Municipal de Três Lagoas.
+
+            Durante minha trajetória acadêmica e profissional, desenvolvi habilidades em diversas tecnologias, com ênfase em JavaScript, React e TypeScript. Além disso, tenho familiaridade com metodologias ágeis como Scrum e sou um defensor do desenvolvimento sustentável nas soluções tecnológicas que proponho. Acredito no poder da colaboração e busco sempre me atualizar com as melhores práticas de desenvolvimento, com foco na entrega de soluções eficientes, escaláveis e de fácil manutenção.
+            
+            Embora minha experiência ainda seja em desenvolvimento júnior, tenho me dedicado a aprimorar meus conhecimentos, aplicando-os em projetos reais e buscando sempre a excelência no que faço. Meu objetivo é evoluir profissionalmente, aprender continuamente e contribuir para o crescimento da tecnologia e das equipes com as quais trabalho.</p>
+        </div>
+        </section>
+    
+
+        <section class="formacoes" id="formacoes">
+            <h2 id="formacoes-title">Formações</h2> <!-- Aplicando a tradução para "Formações" -->
+        
+            <div class="timeline-container">
+                <ul class="timeline">
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="unesp-title">UNESP - 2019</h3>
+                                    <p id="unesp-description">Python: do iniciante ao intermediário.</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img src="./src/image/UnespLogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="unicesumar-title">Unicesumar - 2022 - 2024</h3>
+                                    <p id="unicesumar-description">Graduação - Análise de Sistemas</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img src="./src/image/UnicesumarLogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="alura-title-1">Instituição Alura - 2022</h3>
+                                    <p id="alura-description-1">Formação HTML/CSS<br>Java OO<br>Java JRE e jdk<br>Redes<br>C#<br>C<br>Modelos de Gestão</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img src="./src/image/AluraLogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="alura-title-2">Instituição Alura - 2023</h3>
+                                    <p id="alura-description-2">JS para web<br>UX<br>Figma</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img src="./src/image/AluraLogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="dio-title">Instituição Dio.me - 2024</h3>
+                                    <p id="dio-description">Projetos ágeis com scrum<br>React<br>Typescript</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img src="./src/image/DioLogo.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+        
+                    <li class="timeline-item">
+                        <div class="content">
+                            <div class="d-flex align-items-center"> 
+                                <div>
+                                    <h3 id="linux-foundation-title">The Linux Foundation - 2024</h3>
+                                    <p id="linux-foundation-description">Green Software for Practitioners LFC131</p>
+                                </div>
+        
+                                <div class="img-formacao">
+                                    <img style="width: 20%;" src="./src/image/LinuxFoundation.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="projetos" id="projetos">
+            <div class="wrapper">
+                <div class="text-marquee">
+                    <span id="projetos-title">Alguns dos meus Projetos</span>
+                    <span id="projetos-subtitle">Trabalhos Recentes</span>
+                    <span id="projetos-design">Design Criativo</span>
+                </div>
+            </div>
+        
+            <div class="projetos-cards">
+                <div id="clima-card" class="card-projeto">
+                    <div id="clima-title" class="card-title">Pesquisa de clima</div>
+                    <img src="./src/image/clima.png" alt="">
+                </div>
+                <div id="login-card" class="card-projeto">
+                    <div id="login-title" class="card-title">Página de Login</div>
+                    <img src="./src/image/login.png" alt="">
+                </div>
+                <div id="mario-card" class="card-projeto">
+                    <div id="mario-title" class="card-title">Jogo Mario</div>
+                    <img src="./src/image/jogoMario.png" alt="">
+                </div>
+                <div id="yakissoba-card" class="card-projeto">
+                    <div id="yakissoba-title" class="card-title">Sistema de Pedido de Comida</div>
+                    <img src="./src/image/yakissoba.png" alt="">
+                </div>
+                <div id="landingPage-card" class="card-projeto">
+                    <div id="landingPage-title" class="card-title">Landing Page</div>
+                    <img src="./src/image/paginaApresentacao.png" alt="">
+                </div>
+                <div id="tramite-card" class="card-projeto">
+                    <div id="tramite-title" class="card-title">Trâmite Licitação</div>
+                    <img src="./src/image/tramiteLicitacao.png" alt="">
+                </div>
+            </div>
+        </section>
+    
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button id="close-modal" class="close-button">&times;</button>
+            <iframe width="460" height="215" id="modal-video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+            <a id="modal-github" href="#" target="_blank">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width: 40px;">
+            </a>
+        </div>
+    </div>
+    
+    
+
+    <section class="contatos" id="contatos">
+        <h2 class="text-center">Contatos</h2>
+        <p class="text-center">Vamos nos conectar! 🌐</p>
+        <div class="social-links d-flex justify-content-center gap-4">
+            <a href="https://www.linkedin.com/in/richardmasayuki/" target="_blank" class="social-icon" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/RMTerayama" target="_blank" class="social-icon" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/rmasayuki" target="_blank" class="social-icon" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </section>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./src/liquid.js"></script>
+    <script src="./src/traducao.js"></script>
+    <script src="./src/script.js"></script>
+
+    <script>
+
+        
+document.querySelectorAll('.card-projeto').forEach(card => {
+    const title = card.querySelector('.card-title').innerText;
+
+    // URLs dos vídeos no YouTube
+    const videoUrls = {
+'Pesquisa de clima': 'https://www.youtube.com/embed/SfGSe3XxiF0?autoplay=1&mute=1',
+        'Página de Login': 'https://www.youtube.com/embed/ytZ8KPS8wi4?autoplay=1&mute=1',
+        'Jogo Mario': 'https://www.youtube.com/embed/YDBNavYa0eE?autoplay=1&mute=1',
+        'Sistema de Pedido de Comida': 'https://www.youtube.com/embed/TAI3OlPD8q8?autoplay=1&mute=1',
+        'Landing Page': 'https://www.youtube.com/embed/5OgK4GK3cxM?autoplay=1&mute=1',
+        'Trâmite Licitação': 'https://www.youtube.com/embed/RxTC2mYLs7c?autoplay=1&mute=1'
+    };
+
+    const modal = document.getElementById('modal');
+    const modalVideo = document.getElementById('modal-video'); // Agora é um iframe
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalGitHub = document.getElementById('modal-github');
+    const closeModal = document.getElementById('close-modal');
+
+    const descriptionsByLanguage = {
+        pt: {
+            'Pesquisa de clima': 'Sistema para realizar pesquisas climáticas.',
+            'Página de Login': 'Layout para uma página de login, simples, moderna e responsiva.',
+            'Jogo Mario': 'Jogo interativo simples inspirado no clássico Mario. O objetivo é evitar os canos ao longo do caminho. Ao pressionar a tecla "espaço", o Mario realiza um salto para desviar dos obstáculos.',
+            'Sistema de Pedido de Comida': 'Sistema para gerenciamento de pedidos de alimentos online. Ao adicionar itens ao carrinho, o usuário pode visualizar todos os produtos, escolher entre entrega ou retirada e selecionar a forma de pagamento. Após a finalização, o pedido é enviado diretamente para o responsável pelo estabelecimento via WhatsApp.',
+            'Landing Page': 'Página de apresentação de produto ou serviço.',
+            'Trâmite Licitação': 'Este sistema foi desenvolvido para facilitar os processos licitatórios internos da prefeitura, que antes eram realizados por meio de papel e WhatsApp. Agora, é possível que o responsável pela licitação crie um processo, adicione os produtos que farão parte da licitação e defina as datas de início e fim. Com isso, o usuário responsável pelo pedido acessa o link, seleciona a licitação, informa a quantidade dos itens e justifica a necessidade.'
+        },
+        en: {
+            'Pesquisa de clima': 'System to conduct climate surveys.',
+            'Página de Login': 'Layout for a login page, simple, modern, and responsive.',
+            'Jogo Mario': 'Simple interactive game inspired by the classic Mario. The goal is to avoid pipes along the way. Press the "space" key to make Mario jump and avoid obstacles.',
+            'Sistema de Pedido de Comida': 'System for managing food orders online. Users can add items to the cart, view products, choose between delivery or pick-up, and select the payment method. After completing the order, it is sent directly to the responsible person via WhatsApp.',
+            'Landing Page': 'Product or service presentation page.',
+            'Trâmite Licitação': 'This system was developed to streamline internal bidding processes at the city hall, which were previously handled via paper and WhatsApp. Now, the person in charge of the bidding can create a process, add the products for the bidding, and define start and end dates. The user responsible for the request accesses the link, selects the bidding, provides item quantities, and justifies the need.'
+        },
+        jp: {
+            'Pesquisa de clima': '気候調査を行うためのシステム。',
+            'Página de Login': 'シンプルでモダン、レスポンシブなログインページのレイアウト。',
+            'Jogo Mario': 'クラシックなマリオにインスパイアされたシンプルなインタラクティブゲーム。目標は途中でパイプを避けることです。「スペース」キーを押してマリオが障害物を避けるためにジャンプします。',
+            'Sistema de Pedido de Comida': 'オンラインでの食べ物の注文を管理するシステム。ユーザーはカートにアイテムを追加し、商品を表示し、配達またはピックアップを選択し、支払い方法を選びます。注文が完了した後、WhatsAppを通じて直接担当者に送信されます。',
+            'Landing Page': '製品やサービスのプレゼンテーションページ。',
+            'Trâmite Licitação': 'このシステムは、以前は紙やWhatsAppで行われていた市役所の入札プロセスを簡素化するために開発されました。これで、入札担当者はプロセスを作成し、入札する製品を追加し、開始日と終了日を定義できます。その後、リクエストの担当者がリンクにアクセスし、入札を選択し、アイテムの数量を提供して、必要性を正当化します。'
+        }
+    };
+  // Função para atualizar a descrição conforme a linguagem
+  function updateDescription(language) {
+        document.querySelectorAll('.card-projeto').forEach(card => {
+            const title = card.querySelector('.card-title').innerText;
+            const modalDescription = document.getElementById('modal-description');
+            modalDescription.textContent = descriptionsByLanguage[language][title] || 'Descrição não disponível';
+        });
+    }
+
+    // Alterar a linguagem quando o usuário seleciona uma nova opção
+    const languageSelect = document.getElementById('language');
+    languageSelect.addEventListener('change', (e) => {
+        const selectedLanguage = e.target.value;
+        updateDescription(selectedLanguage);
+    });
+
+    // Chama a função ao carregar para garantir que a descrição correta seja exibida
+    updateDescription('pt'); // Default é Português
+
+    // Clique no card abre o modal
+    card.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalVideo.src = videoUrls[title] || ''; // Atualiza com o link correto
+        modalTitle.textContent = title;
+        modalDescription.textContent = descriptionsByLanguage[languageSelect.value][title] || 'Descrição não disponível'; // Use descriptionsByLanguage
+        modalGitHub.href = 'https://github.com/RMTerayama'; // Substitua pelo link correto
+    });
+
+    // Clique no botão de fechar
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalVideo.src = ''; // Limpa o iframe ao fechar
+    });
+
+    // Clique fora do conteúdo fecha o modal
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            modalVideo.src = '';
+        }
+    });
+});
+
+ // Skills traduzidas
+ const skillsByLanguage = {
+        pt: ['Comunicação', 'Trabalho em Equipe', 'Resolução de Problemas', 'Adaptabilidade'],
+        en: ['Communication', 'Teamwork', 'Problem Solving', 'Adaptability'],
+        jp: ['コミュニケーション', 'チームワーク', '問題解決', '適応力']
+    };
+
+    let skills = skillsByLanguage['pt']; // Default: Português
+    let skillIndex = 0;
+    let charIndex = 0;
+    let currentSkill = '';
+    let isDeleting = false;
+    const typingElement = document.getElementById('typingEffect');
+
+    // Função para digitar e apagar palavras
+    function type() {
+        if (isDeleting) {
+            currentSkill = skills[skillIndex].substring(0, charIndex--);
+            typingElement.textContent = currentSkill;
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                skillIndex = (skillIndex + 1) % skills.length;
+            }
+        } else {
+            currentSkill = skills[skillIndex].substring(0, charIndex++);
+            typingElement.textContent = currentSkill;
+
+            if (charIndex === skills[skillIndex].length) {
+                isDeleting = true;
+                setTimeout(type, 1000); // Pausa antes de apagar
+                return;
+            }
+        }
+
+        const typingSpeed = isDeleting ? 100 : 200;
+        setTimeout(type, typingSpeed);
+    }
+
+    // Alterar skills conforme a linguagem selecionada
+    const languageSelect = document.getElementById('language');
+    languageSelect.addEventListener('change', (e) => {
+        updateSpanLanguage(e.target.value);
+
+        const selectedLanguage = e.target.value;
+        skills = skillsByLanguage[selectedLanguage];
+        skillIndex = 0; // Reinicia na primeira skill
+        charIndex = 0; // Reinicia o efeito de digitação
+        currentSkill = '';
+        isDeleting = false; // Para evitar problemas na troca
+    });
+
+    // Inicia o efeito de digitação
+    type();
+
+    function updateSpanLanguage(language) {
+    const projetosTitle = document.getElementById('projetos-title');
+    const projetosSubtitle = document.getElementById('projetos-subtitle');
+    const projetosDesign = document.getElementById('projetos-design');
+
+    const translations = {
+        pt: {
+            projetosTitle: 'Alguns dos meus Projetos',
+            projetosSubtitle: 'Trabalhos Recentes',
+            projetosDesign: 'Design Criativo'
+        },
+        en: {
+            projetosTitle: 'Some of my Projects',
+            projetosSubtitle: 'Recent Works',
+            projetosDesign: 'Creative Design'
+        },
+        jp: {
+            projetosTitle: 'いくつかのプロジェクト',
+            projetosSubtitle: '最近の仕事',
+            projetosDesign: 'クリエイティブデザイン'
+        }
+    };
+
+    projetosTitle.textContent = translations[language].projetosTitle;
+    projetosSubtitle.textContent = translations[language].projetosSubtitle;
+    projetosDesign.textContent = translations[language].projetosDesign;
+}
+
+        
+    </script>
+    
+</body>
+
+</html>
