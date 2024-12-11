@@ -56,13 +56,21 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background: rgb(255,255,255);
+background: -moz-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(44,62,80,1) 44%, rgba(44,62,80,1) 54%, rgba(44,62,80,1) 83%);
+background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(44,62,80,1) 44%, rgba(44,62,80,1) 54%, rgba(44,62,80,1) 83%);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(44,62,80,1) 44%, rgba(44,62,80,1) 54%, rgba(44,62,80,1) 83%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2c3e50",GradientType=1);
 }
 /* Estilo da imagem na seção "Quem Sou" */
 .quem-sou img {
     width: 150px; /* Define o tamanho da imagem */
     border-radius: 50%; /* Faz a imagem ficar arredondada */
 }
-
+.apresent-container{
+ 
+        border-radius: 10px;
+}
 /* Estilo do título na seção "Quem Sou" */
 .quem-sou h1 {
     font-size: 2.5rem; /* Tamanho da fonte */
@@ -76,8 +84,15 @@ body {
     background: #2C3E50;
     border-radius: 0 0 10px 10px;
 }
-.quem-sou p{
-    color:#F7F7F6; /* Cor do texto */
+.text-apresent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color:#2C3E50; /* Cor do texto */
+    border-radius: 10px;
+    border-left: solid 5px #2980b9;
+font-weight: bold;
 
 }
 /* Estilo do subtítulo na seção "Quem Sou" */
@@ -87,19 +102,19 @@ body {
 }
 .card-apresent{
     padding: 3vw;
-    margin: 2vw;
     background: #ffffff24;
     border-radius: 10px;
+    margin-right: 2vw;
 }
 .skills {
-margin-left: 3px;
+    margin-left: 3px;
     white-space: wrap; /* Impede que as palavras quebrem de linha */
     background: #ffffff66;
     padding: 2px;
     border-radius: 5px;}
 
 
-    .wrap-2{
+.wrap-2{
     position:absolute;
     z-index:-30;
     top:0;
@@ -108,8 +123,12 @@ margin-left: 3px;
     height:100vh;
     width:100vw;
     margin:auto;
-    background: -webkit-gradient(linear, left top, right bottom, from(#118ee1), to(#003b6b));
-    background: #2C3E50;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(104,117,129,1) 15%, rgba(44,62,80,1) 32%);
+    background: -webkit-linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(104,117,129,1) 15%, rgba(44,62,80,1) 32%);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(104,117,129,1) 15%, rgba(44,62,80,1) 32%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#2c3e50",GradientType=1);
+
 }
 canvas{
     width:100%;
@@ -596,18 +615,12 @@ canvas{
     </nav>
 
     <section class="quem-sou" id="quem-sou">
-        <div class="wrap-2"><canvas id="liquid"></canvas></div>
-        <div style="background: #ffffff50; border-radius:10px;backdrop-filter: blur(5px);
-        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        background: #ffffff50;
-        border-radius: 10px;">
+        <!-- <div class="wrap-2"><canvas id="liquid"></canvas></div> -->
+        <div class="apresent-container d-block d-lg-flex" >
 
 
         <div class="card-apresent">
-            <img src="./src/image/Design sem nome.gif" alt="Foto do Desenvolvedor">
+            <img src="./src/image/eu.png" alt="Foto do Desenvolvedor">
             <div class="d-flex justify-content-center">
                 <h1>Richard Masayuki</h1>
                 <a href="CV.pdf" download="Richard_Masayuki_CV.pdf" style="margin-left: 10px; text-decoration: none; color: inherit;">
@@ -796,6 +809,7 @@ canvas{
             </a>
         </div>
     </section>
+    
     
     
 
